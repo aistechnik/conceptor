@@ -1,0 +1,12 @@
+accelerate
+diffusers
+einops
+ftfy
+matplotlib
+numpy
+opencv-python
+pandas
+pytorch
+torchvision
+transformers
+xformers
