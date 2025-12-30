@@ -31,10 +31,9 @@ def parse_args():
   parser.add_argument(
       "--pretrained_model_name_or_path",
       type=str,
-      default="stabilityai/stable-diffusion-2-1-base",
+      default="stabilityai/stable-diffusion-xl-base-1.0",
       help=(
-          "Path to pretrained model or model identifier from"
-          " huggingface.co/models."
+          "Path to pretrained model or model identifier from huggingface.co/models."
       ),
   )
   parser.add_argument(
