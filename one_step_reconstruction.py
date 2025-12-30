@@ -24,7 +24,7 @@ from pathlib import Path
 import random
 
 from accelerate import Accelerator
-from accelerate.logging import get_logger
+#from accelerate.logging import get_logger
 import diffusers
 from diffusers import (
     AutoencoderKL,
@@ -51,9 +51,7 @@ from tqdm.auto import tqdm
 import transformers
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPModel, CLIPProcessor
 
-if version.parse(version.parse(PIL.__version__).base_version) >= version.parse(
-    "9.1.0"
-):
+if version.parse(version.parse(PIL.__version__).base_version) >= version.parse("9.1.0"):
   PIL_INTERPOLATION = {
       "linear": PIL.Image.Resampling.BILINEAR,
       "bilinear": PIL.Image.Resampling.BILINEAR,
@@ -72,7 +70,7 @@ else:
 # ------------------------------------------------------------------------------
 
 
-logger = get_logger(__name__)
+#logger = get_logger(__name__)
 
 
 def parse_args():
@@ -653,7 +651,7 @@ def main():
       datefmt="%m/%d/%Y %H:%M:%S",
       level=logging.INFO,
   )
-  logger.info(accelerator.state, main_process_only=False)
+  #logger.info(accelerator.state, main_process_only=False)
   if accelerator.is_local_main_process:
     transformers.utils.logging.set_verbosity_warning()
     diffusers.utils.logging.set_verbosity_info()
@@ -837,7 +835,7 @@ def main():
       * accelerator.num_processes
       * args.gradient_accumulation_steps
   )
-
+  '''
   logger.info("***** Running training *****")
   logger.info(f"  Num examples = {len(train_dataset)}")
   logger.info(f"  Num Epochs = {args.num_train_epochs}")
@@ -852,6 +850,7 @@ def main():
       f"  Gradient Accumulation steps = {args.gradient_accumulation_steps}"
   )
   logger.info(f"  Total optimization steps = {args.max_train_steps}")
+  '''
   global_step = 0
   first_epoch = 0
 
@@ -1038,7 +1037,7 @@ def main():
             "lr": lr_scheduler.get_last_lr()[0],
         }
         progress_bar.set_postfix(**logs)
-        accelerator.log(logs, step=global_step)
+        #accelerator.log(logs, step=global_step)
 
       if (
           args.validation_prompt is not None
