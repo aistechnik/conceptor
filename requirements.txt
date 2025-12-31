@@ -1,4 +1,3 @@
-accelerate
 diffusers
 einops
 ftfy
@@ -10,3 +9,4 @@ torch
 torchvision
 transformers
 xformers
+accelerate==0.18.0
